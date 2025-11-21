@@ -1,13 +1,66 @@
-# Build / temporary files
+# ===============================
+# Build / Temporary folders
+# ===============================
 build/
-.vs/
-arctic-embed/
-.idea/
-temp/
+bin/
+obj/
+Debug/
+Release/
+*.exe
+*.dll
+*.pdb
+*.log
 
-# OS / IDE files
+# ===============================
+# Visual Studio / VSCode files
+# ===============================
+.vs/
+*.vcxproj.user
 *.suo
 *.user
-*.vcxproj.user
+*.userosscache
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+
+# ===============================
+# CMake / CMake build files
+# ===============================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# ===============================
+# OS files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# External / dependency folders
+# ===============================
+arctic-embed/
+*.tmp
+*.temp
+
+# ===============================
+# Git attributes / line endings
+# ===============================
+*.gitattributes
+*.gitignore
+
+# ===============================
+# Logs / indexing
+# ===============================
 *.vsidx
 *.log
+
+# ===============================
+# Optional: IDE specific
+# ===============================
+.idea/
+*.iml
+
+*api.txt
