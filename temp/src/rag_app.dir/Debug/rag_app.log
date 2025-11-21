@@ -1,0 +1,6 @@
+﻿  main.cpp
+  test.cpp
+  Generating Code...
+test.obj : error LNK2005: main already defined in main.obj
+test.obj : error LNK2019: unresolved external symbol "public: __cdecl embedding_http::embedding_http(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0embedding_http@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) referenced in function "class std::unique_ptr<class embedding_http,struct std::default_delete<class embedding_http> > __cdecl std::make_unique<class embedding_http,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &,0>(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)" (??$make_unique@Vembedding_http@@AEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@$0A@@std@@YA?AV?$unique_ptr@Vembedding_http@@U?$default_delete@Vembedding_http@@@std@@@0@AEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@@Z)
+C:\___C++\AI ML Projects\RAG_v.2\build\src\Debug\rag_app.exe : fatal error LNK1120: 1 unresolved externals

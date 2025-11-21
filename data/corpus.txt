@@ -1,0 +1,3 @@
+Hello world. This is a sample document.
+The quick brown fox jumps over the lazy dog.
+AI-powered retrieval is fun to experiment with.

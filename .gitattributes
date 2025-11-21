@@ -1,2 +1,13 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Build / temporary files
+build/
+.vs/
+arctic-embed/
+.idea/
+temp/
+
+# OS / IDE files
+*.suo
+*.user
+*.vcxproj.user
+*.vsidx
+*.log
