@@ -64,7 +64,7 @@ Make sure libcurl.dll is in your executable folder or PATH.
 
 A fully local Retrieval-Augmented Generation (RAG) system implemented in C++ from the ground up.
 This project integrates a custom C++ HTTP client, a vector search pipeline, a Python embedding server, and a local LLM running through Ollama.
-The entire request flow — from ingestion to retrieval to generation — is implemented with no external cloud dependencies.
+The entire request flow from ingestion to retrieval to generation is implemented with no external cloud dependencies.
 
 This is a pure C++ RAG pipeline, built for performance, full control, and transparency.
 
