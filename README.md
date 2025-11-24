@@ -60,7 +60,7 @@ Note: On Windows, libcurl depends on ws2_32.lib, winmm.lib, wldap32.lib — you 
 
 Make sure libcurl.dll is in your executable folder or PATH.
 
-Retrieval-Augmented Generation System in C++
+### Retrieval-Augmented Generation System in C++
 
 A fully local Retrieval-Augmented Generation (RAG) system implemented in C++ from the ground up.
 This project integrates a custom C++ HTTP client, a vector search pipeline, a Python embedding server, and a local LLM running through Ollama.
@@ -68,49 +68,37 @@ The entire request flow — from ingestion to retrieval to generation — is imp
 
 This is a pure C++ RAG pipeline, built for performance, full control, and transparency.
 
-Key Features
-Core RAG Engine (C++)
+## Key Features
 
-Full RAG pipeline implemented in modern C++
+# Core RAG Engine (C++)
 
-Custom HTTP communication using libcurl
+- Full RAG pipeline implemented in modern C++
+- Custom HTTP communication using libcurl
+- JSON handling with nlohmann::json
+- Chunked text ingestion
+- Embedding retrieval via FastAPI backend
+- Vector similarity search (cosine similarity)
+- Local LLM generation through Ollama's HTTP API
+- Proper error handling and fail-safes
+- Clean, reusable C++ class architecture
 
-JSON handling with nlohmann::json
+# Embeddings (Python API)
 
-Chunked text ingestion
-
-Embedding retrieval via FastAPI backend
-
-Vector similarity search (cosine similarity)
-
-Local LLM generation through Ollama's HTTP API
-
-Proper error handling and fail-safes
-
-Clean, reusable C++ class architecture
-
-Embeddings (Python API)
-
-Python FastAPI microservice providing embeddings
-
-Arctic-Embed (or any SentenceTransformer) as the embedding model
-
-Vector output returned as raw float arrays to C++
-
-Designed to run locally and respond at high throughput
+- Python FastAPI microservice providing embeddings
+- Arctic-Embed (or any SentenceTransformer) as the embedding model
+- Vector output returned as raw float arrays to C++
+- Designed to run locally and respond at high throughput
 
 Local LLM Inference (Ollama)
 
-Uses http://127.0.0.1:11434/api/generate
+- Uses `http://127.0.0.1:11434/api/generate`
+- Supports any Ollama-compatible model (Llama, Mistral, Gemma, etc)
+- API requests fully handled in C++
+- Response text streamed and parsed safely
 
-Supports any Ollama-compatible model (Llama, Mistral, Gemma, etc)
-
-API requests fully handled in C++
-
-Response text streamed and parsed safely
+## System Architecture
 
 ```
-System Architecture
           ┌─────────────────────┐
           │      User Query     │
           └──────────┬──────────┘
@@ -129,9 +117,9 @@ System Architecture
        ┌─────────────┴─────────────┐
        ▼                           ▼
 ┌───────────────┐         ┌────────────────┐
-│ Python API     │         │  Vector Store │
-│ Arctic-Embed   │         │   (C++/JSON)  │
-│ FastAPI server │         │ Cosine Search │
+│ Python API    │         │  Vector Store  │
+│ Arctic-Embed  │         │   (C++/JSON)   │
+│ FastAPI server│         │ Cosine Search  │
 └───────────────┘         └────────────────┘
                      │
                      ▼
@@ -140,7 +128,7 @@ System Architecture
           └─────────────────────┘
 ```
 
-Folder Structure
+## Folder Structure
 
 ```
 RAG_v.2/
@@ -175,21 +163,21 @@ RAG_v.2/
 
 ```
 
-Ignored via `.gitignore:`
+## Ignored via `.gitignore:`
 
 _`build/`
 _`llama.cpp/`
 _`temp/`
 _`arctic-embed/` \*`.vscode/`
 
-Dependencies
+## Dependencies
 
 - C++
 - CMake
 - libcurl
 - nlohmann/json
 
-Python (Embedding API)
+## Python (Embedding API)
 
 - Python 3.10+
 - FastAPI
@@ -197,12 +185,12 @@ Python (Embedding API)
 - sentence-transformers or Arctic-Embed
 - NumPy
 
-Local LLM
+## Local LLM
 
 - Ollama
   (Start server automatically by running ollama serve)
 
-Building
+## Building
 
 ```
 - mkdir build
@@ -212,19 +200,24 @@ Building
 
 ```
 
-Running the Full Pipeline
-Step 1: Start embedding server
+## Running the Full Pipeline
+
+# Step 1: Start embedding server
+
 `cd api
 uvicorn embed_api:app --port 8000`
-Step 2: Start Ollama
+
+# Step 2: Start Ollama
+
 `ollama serve`
 
-Step 3: Run the C++ app
+# Step 3: Run the C++ app
+
 `./RAG_v2`
 
-Important C++ Code Behavior
+## Important C++ Code Behavior
 
-Embedding Request in C++
+# Embedding Request in C++
 
 ```
 nlohmann::json j = nlohmann::json::parse(readBuffer);
@@ -235,7 +228,7 @@ if (j.contains("embedding"))
 throw std::runtime_error("Invalid embedding response");
 ```
 
-Ollama LLM Request in C++
+# Ollama LLM Request in C++
 
 ```
 if (j.contains("text"))
@@ -247,7 +240,7 @@ if (j.contains("outputs") && j["outputs"].is_array() && !j["outputs"].empty())
 throw std::runtime_error("invalid LLM response");
 ```
 
-Error Handling
+# Error Handling
 
 Errors are printed cleanly:
 
