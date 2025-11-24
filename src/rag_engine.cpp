@@ -1,7 +1,8 @@
 #include "rag_engine.h"
 #include <sstream>
+#include <iostream>
 
-rag_engine::rag_engine(std::shared_ptr<retriever> retriever, std::shared_ptr<llm_client> llm, int max_context_tokens):
+rag_engine::rag_engine(std::shared_ptr<retriever> retriever, std::shared_ptr<llm_http> llm, int max_context_tokens):
 	retriever_(retriever),
 	llm_(llm),
 	max_context_tokens_(max_context_tokens)
@@ -11,9 +12,11 @@ rag_engine::rag_engine(std::shared_ptr<retriever> retriever, std::shared_ptr<llm
 std::string rag_engine::answer(const std::string& questions)
 {
 	auto ctx = retriever_->retrieve(questions);
+	std::cout << "[SYSTEM] Successfully Retreived \n";
 	std::string prompt = assemble_prompt(questions, ctx);
+	const std::string& model = "llama3.2";
 	int max_tokens = 512;
-	return llm_->generate(prompt, max_tokens);
+	return llm_->generate(model,prompt, max_tokens);
 }
 
 std::string rag_engine::assemble_prompt(const std::string& q, const std::vector<VectorRecord>& ctx)

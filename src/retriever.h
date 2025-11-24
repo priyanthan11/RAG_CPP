@@ -1,5 +1,5 @@
 #pragma once
-#include "embedding_client.h"
+#include "embedding_http.h"
 #include "vector_store.h"
 #include "chunker.h"
 #include <memory>
@@ -31,7 +31,7 @@ public:
 	* @param vs Shared vector store containing document embeddings
 	* @param top_k Number of search results to return
 	*/
-	retriever(std::shared_ptr<embedding_client> emb, std::shared_ptr<vector_store> vs, int top_k = 8);
+	retriever(std::shared_ptr<embedding_http> emb, std::shared_ptr<vector_store> vs, int top_k = 8);
 	
 	/*
 	* @brief Retrieve the top_K most relevent VectorRecords for query string
@@ -44,7 +44,7 @@ public:
 	std::vector<VectorRecord> retrieve(const std::string& query);
 
 private:
-	std::shared_ptr<embedding_client>emb_; // Generate Embeddings
+	std::shared_ptr<embedding_http>emb_; // Generate Embeddings
 	std::shared_ptr<vector_store> vs_; // Holds document vectors
 	int top_k_; // Number of items to return
 };

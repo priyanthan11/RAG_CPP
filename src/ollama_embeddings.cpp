@@ -10,8 +10,8 @@ std::vector<float> ollama_embeddings::embed_text(const std::string& text)
 		<< text
 		<< "\"\n"
 		<< "Return only a JASON array of numbers, e.g. [0.1,0.2, ...]";
-
-	std::string output = llm_->generate(prompt.str(), 1000);
+	const std::string& model = "llama3.2";
+	std::string output = llm_->generate(model,prompt.str(), 1000);
 	// Parse JSON array into vector<float>
 	try
 	{

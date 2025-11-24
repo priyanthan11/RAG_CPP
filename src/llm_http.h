@@ -49,7 +49,7 @@ class llm_http : public llm_client
 public:
 	llm_http(const std::string& url);
 	
-	virtual std::string generate(const std::string& prompt, int max_tokens) override;
+	virtual std::string generate(const std::string& model,const std::string& prompt, int max_tokens) override;
 
 private:
 	std::string url_;

@@ -1,3 +1,14 @@
-Hello world. This is a sample document.
-The quick brown fox jumps over the lazy dog.
-AI-powered retrieval is fun to experiment with.
+Artificial Intelligence Overview
+Artificial Intelligence (AI) is a branch of computer science that aims to create machines capable of intelligent behavior. It includes machine learning, natural language processing, computer vision, and robotics. AI systems can perform tasks that typically require human intelligence, such as decision-making, problem-solving, and language understanding.
+
+Machine Learning Basics
+Machine learning is a subset of AI focused on building systems that learn from data. It includes supervised learning, unsupervised learning, and reinforcement learning techniques. Supervised learning uses labeled data to train models, unsupervised learning finds patterns in unlabeled data, and reinforcement learning enables agents to learn through trial and error.
+
+Neural Networks
+Neural networks are computational models inspired by the human brain. They consist of layers of interconnected nodes called neurons. Neural networks are widely used in deep learning for tasks such as image recognition, speech recognition, and natural language processing. Techniques such as backpropagation are used to train neural networks effectively.
+
+Reinforcement Learning
+Reinforcement learning is a type of machine learning where an agent learns to make decisions by interacting with an environment and receiving rewards or penalties. The agent aims to maximize cumulative rewards over time. Applications include robotics, game AI, and autonomous vehicles.
+
+Natural Language Processing
+Natural language processing (NLP) is a field of AI that focuses on the interaction between computers and humans through natural language. NLP applications include chatbots, sentiment analysis, machine translation, and information retrieval. NLP techniques involve text preprocessing, tokenization, embeddings, and transformer-based models.

@@ -35,6 +35,6 @@ public:
 	* @NOTE: This function is pure virual. Classes implementing llmclient must provide the 
 	* backend-specific logic (HTTP request, local inference call, streaming, etc.)
 	*/
-	virtual std::string generate(const std::string& prompt, int max_tokens) = 0;
+	virtual std::string generate(const std::string& model,const std::string& prompt, int max_tokens) = 0;
 };
 
