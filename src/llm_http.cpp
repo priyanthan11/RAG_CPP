@@ -31,7 +31,7 @@ std::string llm_http::generate(const std::string& model,const std::string& promp
 
 		std::string body = req.dump();
 		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, body.c_str());
-		// Use a lambda **without capture** -> converts to C function pointer
+		
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,WriteCallback);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
 

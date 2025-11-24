@@ -22,17 +22,38 @@ std::string rag_engine::answer(const std::string& questions)
 std::string rag_engine::assemble_prompt(const std::string& q, const std::vector<VectorRecord>& ctx)
 {
 	std::ostringstream ss;
-	ss << "You are a helpful assistant. Use the following context to answer the question. If context is insufficient say 'I don't know'.\n\n";
+	ss << "SYSTEM:\n"
+        "You are an OpenAI internal assistant. Use ONLY the provided context to answer.\n"
+        "If the answer is not found in the context, reply:\n"
+        "\"I don't know based on the provided information.\"\n"
+        "You MUST cite using the format: [source:start-end].\n"
+		"Do not use external knowledge.\n\n";
+	ss << "CONTEXT:\n";
+
+	// Context Chunks
 	int tokenEstimate = 0;
 	for (auto& r : ctx)
 	{
 		// Simple token budgeting by character count
 		int estTokens = (int)r.chunk.text.size() / 4;
 		if (tokenEstimate + estTokens > max_context_tokens_) break;
-		ss << "[COURCE: " << r.chunk.source << " START: " << r.chunk.start_char << " END:" << r.chunk.end_char << "]\n";
-		ss << r.chunk.text << "\n\n";
+		
+		/*ss << "[COURCE: " << r.chunk.source << " START: " << r.chunk.start_char << " END:" << r.chunk.end_char << "]\n";
+		ss << r.chunk.text << "\n\n";*/
+
+		ss << "=========== CHUNK ============";
+		ss << "SOURCE: " << r.chunk.source << "\n";
+		ss << "RANGE: " << r.chunk.start_char << "-" << r.chunk.end_char << "\n";
+		ss << "TEXT: \n" << r.chunk.text << "\n";
+		ss << "==============================\n\n";
+
+
+
 		tokenEstimate += estTokens;
 	}
-	ss << "QUESTION: " << q << "\n\nAnswer: ";
+	// ==== QUESTION
+	ss << "QUESTION: " << q << "\n\n";
+	// ==== ANSWER
+	ss << "ANSWER: \n";
 	return ss.str();
 }
