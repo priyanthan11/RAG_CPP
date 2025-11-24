@@ -60,7 +60,7 @@ Note: On Windows, libcurl depends on ws2_32.lib, winmm.lib, wldap32.lib — you 
 
 Make sure libcurl.dll is in your executable folder or PATH.
 
-### Retrieval-Augmented Generation System in C++
+# Retrieval-Augmented Generation System in C++
 
 A fully local Retrieval-Augmented Generation (RAG) system implemented in C++ from the ground up.
 This project integrates a custom C++ HTTP client, a vector search pipeline, a Python embedding server, and a local LLM running through Ollama.
@@ -70,7 +70,7 @@ This is a pure C++ RAG pipeline, built for performance, full control, and transp
 
 ## Key Features
 
-# Core RAG Engine (C++)
+## Core RAG Engine (C++)
 
 - Full RAG pipeline implemented in modern C++
 - Custom HTTP communication using libcurl
