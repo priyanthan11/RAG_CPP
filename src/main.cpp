@@ -93,10 +93,5 @@ int main()
         }
         std::cout << "question: ";
     }
-
-
-
-
-
     return 0;
 }
