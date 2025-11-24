@@ -23,7 +23,7 @@ std::string rag_engine::assemble_prompt(const std::string& q, const std::vector<
 {
 	std::ostringstream ss;
 	ss << "SYSTEM:\n"
-        "You are an OpenAI internal assistant. Use ONLY the provided context to answer.\n"
+        "You are an helpfull internal assistant. Use ONLY the provided context to answer.\n"
         "If the answer is not found in the context, reply:\n"
         "\"I don't know based on the provided information.\"\n"
         "You MUST cite using the format: [source:start-end].\n"
